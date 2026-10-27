@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 export const HeritageStory = ({ onOpenStory }) => {
   return (
@@ -8,7 +9,7 @@ export const HeritageStory = ({ onOpenStory }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left: Large Elegant Image of Diamond Jewellery Craftsmanship */}
-          <div className="lg:col-span-6 relative">
+          <ScrollReveal className="lg:col-span-6 relative" direction="right">
             <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-2xl overflow-hidden shadow-[0_12px_45px_rgba(30,26,23,0.06)] border border-cream-400/80 group">
               <img
                 src="/ornaments/craftsmanship-warm.jpg"
@@ -31,10 +32,10 @@ export const HeritageStory = ({ onOpenStory }) => {
 
             {/* Subtle decorative border corner */}
             <div className="hidden sm:block absolute -top-4 -left-4 w-28 h-28 border-t border-l border-gold/40 rounded-tl-2xl pointer-events-none" />
-          </div>
+          </ScrollReveal>
 
           {/* Right: Emotional Brand Story Copy */}
-          <div className="lg:col-span-6 space-y-8 text-left">
+          <ScrollReveal className="lg:col-span-6 space-y-8 text-left" direction="left" delay={120}>
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest_editorial text-gold-dark font-sans font-medium">
                 <Sparkles className="w-3.5 h-3.5 text-gold" />
@@ -61,7 +62,7 @@ export const HeritageStory = ({ onOpenStory }) => {
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>

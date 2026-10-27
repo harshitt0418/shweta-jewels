@@ -54,12 +54,12 @@ export const Header = ({
               title="Shweta Diam Inc. — Fine Diamond Jewellery"
             >
               <img
-                src={isScrolled ? '/brand/shweta-logo-rich@2x.png' : '/brand/shweta-logo-clean@2x.png'}
+                src="/brand/shweta-logo-horizontal@2x.png"
                 alt="Shweta Diam Inc."
                 className={`object-contain transition-all duration-400 ${
                   isScrolled 
-                    ? 'h-9 md:h-11 drop-shadow-[0_1px_4px_rgba(77,54,168,0.15)]' 
-                    : 'h-10 md:h-13 filter drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] brightness-110'
+                    ? 'h-8 md:h-10 drop-shadow-[0_1px_4px_rgba(77,54,168,0.15)]' 
+                    : 'h-8 md:h-10 filter drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] brightness-110'
                 }`}
               />
             </a>

@@ -20,10 +20,11 @@ export const Hero = ({ onExplore, onDiscoverStory }) => {
           muted
           loop
           playsInline
+          preload="metadata"
           poster="/ornaments/hero-poster.jpg"
           className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.02]"
         >
-          <source src="/video/hero-jewellery.mp4" type="video/mp4" />
+          <source src="/hero-jewellery.mp4" type="video/mp4" />
           {/* Fallback image if video fails to load or on data saver */}
           <img
             src="/ornaments/hero-poster.jpg"

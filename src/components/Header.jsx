@@ -56,10 +56,10 @@ export const Header = ({
               <img
                 src="/brand/shweta-logo-horizontal@2x.png"
                 alt="Shweta Diam Inc."
-                className={`object-contain transition-all duration-400 ${
+                className={`w-[176px] md:w-[210px] h-auto flex-none object-contain transition-all duration-400 ${
                   isScrolled 
-                    ? 'h-8 md:h-10 drop-shadow-[0_1px_4px_rgba(77,54,168,0.15)]' 
-                    : 'h-8 md:h-10 filter drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] brightness-110'
+                    ? 'drop-shadow-[0_1px_4px_rgba(77,54,168,0.15)]' 
+                    : 'filter drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] brightness-110'
                 }`}
               />
             </a>

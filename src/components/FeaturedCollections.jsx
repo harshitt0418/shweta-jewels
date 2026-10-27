@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { FEATURED_COLLECTIONS } from '../data/jewellery';
+import { ScrollReveal } from './ScrollReveal';
 
 export const FeaturedCollections = ({ onSelectCollection }) => {
   return (
@@ -8,7 +9,7 @@ export const FeaturedCollections = ({ onSelectCollection }) => {
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* Section Heading */}
-        <div className="text-center max-w-2xl mx-auto space-y-3">
+        <ScrollReveal className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs uppercase tracking-widest_editorial text-gold-dark font-sans font-medium">
             Curated Ornaments
           </span>
@@ -18,16 +19,20 @@ export const FeaturedCollections = ({ onSelectCollection }) => {
           <p className="text-xs sm:text-sm text-espresso-muted font-light max-w-md mx-auto leading-relaxed">
             From subtle daily brilliance to unforgettable milestone statements, explore diamond creations designed to be cherished.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Asymmetrical Magazine-Style Grid Composition */}
         <div className="grid grid-cols-12 gap-6 sm:gap-8">
-          {FEATURED_COLLECTIONS.map((item) => (
-            <div
+          {FEATURED_COLLECTIONS.map((item, index) => (
+            <ScrollReveal
               key={item.id}
-              onClick={() => onSelectCollection(item)}
-              className={`${item.span} relative rounded-xl overflow-hidden group cursor-pointer border border-cream-400/80 shadow-[0_4px_25px_rgba(30,26,23,0.03)] hover:shadow-[0_16px_40px_rgba(30,26,23,0.08)] transition-all duration-700`}
+              delay={index * 90}
+              className={item.span}
             >
+              <div
+                onClick={() => onSelectCollection(item)}
+                className="relative rounded-xl overflow-hidden group cursor-pointer border border-cream-400/80 shadow-[0_4px_25px_rgba(30,26,23,0.03)] hover:shadow-[0_16px_40px_rgba(30,26,23,0.08)] transition-all duration-700"
+              >
               {/* Image Container with Smooth Zoom */}
               <div className={`relative ${item.aspect} w-full overflow-hidden bg-cream-300`}>
                 <img
@@ -58,7 +63,8 @@ export const FeaturedCollections = ({ onSelectCollection }) => {
                 </div>
               </div>
 
-            </div>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 

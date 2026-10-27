@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 export const BridalFeature = ({ onExploreBridal }) => {
   return (
@@ -8,7 +9,7 @@ export const BridalFeature = ({ onExploreBridal }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Text Column */}
-          <div className="lg:col-span-6 space-y-8 text-left order-2 lg:order-1">
+          <ScrollReveal className="lg:col-span-6 space-y-8 text-left order-2 lg:order-1" direction="right">
             <div className="space-y-4">
               <span className="text-xs uppercase tracking-widest_editorial text-gold-dark font-sans font-medium">
                 Bridal & Wedding Fine Jewellery
@@ -32,10 +33,10 @@ export const BridalFeature = ({ onExploreBridal }) => {
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Full-height / Large Image of Bride Wearing Refined Diamond Jewellery */}
-          <div className="lg:col-span-6 order-1 lg:order-2">
+          <ScrollReveal className="lg:col-span-6 order-1 lg:order-2" direction="left" delay={120}>
             <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_16px_50px_rgba(30,26,23,0.06)] border border-cream-400/90 group">
               <img
                 src="/ornaments/bridal-feature.jpg"
@@ -55,7 +56,7 @@ export const BridalFeature = ({ onExploreBridal }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>

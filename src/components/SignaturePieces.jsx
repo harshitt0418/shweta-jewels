@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heart, Eye } from 'lucide-react';
 import { SIGNATURE_PIECES } from '../data/jewellery';
+import { ScrollReveal } from './ScrollReveal';
 
 export const SignaturePieces = ({ onInspectPiece, onToggleWishlist, wishlist = [] }) => {
   return (
@@ -8,7 +9,7 @@ export const SignaturePieces = ({ onInspectPiece, onToggleWishlist, wishlist = [
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-3">
+        <ScrollReveal className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs uppercase tracking-widest_editorial text-gold-dark font-sans font-medium">
             Signature Selection
           </span>
@@ -18,19 +19,19 @@ export const SignaturePieces = ({ onInspectPiece, onToggleWishlist, wishlist = [
           <p className="text-xs sm:text-sm text-espresso-muted font-light max-w-md mx-auto leading-relaxed">
             Four iconic diamond designs, cherished for their effortless balance of modern wearability and timeless grace.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 4 Clean Luxury Product Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {SIGNATURE_PIECES.map((piece) => {
+          {SIGNATURE_PIECES.map((piece, index) => {
             const isWishlisted = wishlist.some((item) => item.id === piece.id);
 
             return (
-              <div
-                key={piece.id}
-                onClick={() => onInspectPiece(piece)}
-                className="group relative bg-white rounded-xl overflow-hidden border border-cream-400/90 shadow-[0_4px_20px_rgba(30,26,23,0.03)] hover:shadow-[0_16px_40px_rgba(30,26,23,0.08)] transition-all duration-500 cursor-pointer flex flex-col justify-between"
-              >
+              <ScrollReveal key={piece.id} delay={index * 100}>
+                <div
+                  onClick={() => onInspectPiece(piece)}
+                  className="group relative bg-white rounded-xl overflow-hidden border border-cream-400/90 shadow-[0_4px_20px_rgba(30,26,23,0.03)] hover:shadow-[0_16px_40px_rgba(30,26,23,0.08)] transition-all duration-500 cursor-pointer flex flex-col justify-between"
+                >
                 {/* Product Image Area */}
                 <div className="relative aspect-square w-full overflow-hidden bg-cream-100">
                   <img
@@ -97,7 +98,8 @@ export const SignaturePieces = ({ onInspectPiece, onToggleWishlist, wishlist = [
                   </p>
                 </div>
 
-              </div>
+                </div>
+              </ScrollReveal>
             );
           })}
         </div>

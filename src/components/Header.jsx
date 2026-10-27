@@ -40,9 +40,32 @@ export const Header = ({
             : 'py-6 md:py-8 bg-gradient-to-b from-black/45 via-black/15 to-transparent text-white'
         }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="w-full flex items-center gap-8">
           
-          {/* Left Navigation: Quiet & Editorial */}
+          {/* Center: Official Shweta Diam Inc. Brand Logo */}
+          <div className="flex items-center justify-center">
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="flex items-center transition-transform duration-300 hover:scale-[1.01]"
+              title="Shweta Diam Inc. — Fine Diamond Jewellery"
+            >
+              <img
+                src={isScrolled ? '/brand/shweta-logo-rich@2x.png' : '/brand/shweta-logo-clean@2x.png'}
+                alt="Shweta Diam Inc."
+                className={`object-contain transition-all duration-400 ${
+                  isScrolled 
+                    ? 'h-9 md:h-11 drop-shadow-[0_1px_4px_rgba(77,54,168,0.15)]' 
+                    : 'h-10 md:h-13 filter drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] brightness-110'
+                }`}
+              />
+            </a>
+          </div>
+
+          {/* Navigation: Quiet & Editorial */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-10">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -105,31 +128,8 @@ export const Header = ({
             </button>
           </nav>
 
-          {/* Center: Official Shweta Diam Inc. Brand Logo */}
-          <div className="flex items-center justify-center">
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="flex items-center transition-transform duration-300 hover:scale-[1.01]"
-              title="Shweta Diam Inc. — Fine Diamond Jewellery"
-            >
-              <img
-                src={isScrolled ? '/brand/shweta-logo-rich@2x.png' : '/brand/shweta-logo-clean@2x.png'}
-                alt="Shweta Diam Inc."
-                className={`object-contain transition-all duration-400 ${
-                  isScrolled 
-                    ? 'h-9 md:h-11 drop-shadow-[0_1px_4px_rgba(77,54,168,0.15)]' 
-                    : 'h-10 md:h-13 filter drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] brightness-110'
-                }`}
-              />
-            </a>
-          </div>
-
           {/* Right Action Icons: Search, Wishlist, Bag, Consultation */}
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="ml-auto flex items-center gap-4 sm:gap-6">
             <button
               onClick={onOpenSearch}
               className={`p-1.5 transition-colors relative ${

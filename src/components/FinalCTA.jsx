@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, ArrowRight } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 export const FinalCTA = ({ onBookConsultation }) => {
   return (
@@ -7,7 +8,7 @@ export const FinalCTA = ({ onBookConsultation }) => {
       {/* Background warm radiance */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-white/40 blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 max-w-3xl mx-auto space-y-8">
+      <ScrollReveal className="relative z-10 max-w-3xl mx-auto space-y-8">
         <span className="text-xs uppercase tracking-widest_editorial text-gold-dark font-sans font-medium">
           Private Appointment
         </span>
@@ -33,7 +34,7 @@ export const FinalCTA = ({ onBookConsultation }) => {
         <div className="text-xs text-espresso-subtle font-light pt-2">
           Complimentary in-person appointments at our New York 47th St salon or via private virtual viewing.
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 };

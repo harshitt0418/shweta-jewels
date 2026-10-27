@@ -1,13 +1,14 @@
 import React from 'react';
 import { Gem, Sparkles, HeartHandshake, ShieldCheck } from 'lucide-react';
 import { TRUST_PROMISES } from '../data/jewellery';
+import { ScrollReveal } from './ScrollReveal';
 
 const ICONS = [Gem, Sparkles, HeartHandshake, ShieldCheck];
 
 export const WarmTrustStrip = () => {
   return (
     <section className="relative w-full bg-cream-200 border-b border-cream-400/80 py-7 px-6 sm:px-8 md:px-12 text-espresso">
-      <div className="max-w-7xl mx-auto">
+      <ScrollReveal className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center divide-y md:divide-y-0 md:divide-x divide-cream-400">
           {TRUST_PROMISES.map((item, index) => {
             const Icon = ICONS[index];
@@ -33,7 +34,7 @@ export const WarmTrustStrip = () => {
             );
           })}
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 };

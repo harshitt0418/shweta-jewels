@@ -1,47 +1,43 @@
-# Shweta Diam Inc. — The Light Archive
-### Luxury High-Jewellery Home Page & Client Presentation Concept
+# Shweta Diam Inc. — Fine Diamond Jewellery
+### Luxury High-Jewellery Home Page & Client Presentation Concept (Redesign)
 
-An executive digital presentation concept and luxury landing page created for **Shweta Diam Inc.** (New York Diamond District), inspired by the visual direction *"The Light Archive"*.
+An executive digital presentation concept and warm luxury home page sample created for **Shweta Diam Inc.** (New York Diamond District), inspired by the calm elegance, editorial whitespace, and emotional intimacy of elite fine jewellery houses.
 
 ---
 
-## 💎 Features & Highlights
+## 💎 Redesign Direction & Philosophy
 
-- **The Light Archive Aesthetic**:
-  - **Luminous Archive (Light Theme)** by default: Warm champagne alabaster (`#F9F7F2`), soft pearl ivory card surfaces, and deep obsidian charcoal (`#111116`) typography.
-  - **Obsidian Vault (Dark Theme)**: One-click header toggle to switch into midnight charcoal (`#0A0A0C`) with champagne accents.
-- **Official Brand Logo Integration**:
-  - Transparent, high-DPI official logo preserving the royal purple/indigo diamond emblem and typography.
-- **Cinematic 3D Hero Section**:
-  - 3D perspective tilt stage on mouse hover (`rotateX`, `rotateY`).
-  - Studio spotlight beam follower with prismatic glint sparkles.
-  - Interactive in-hero diamond cut switcher (`[Oval]`, `[Emerald]`, `[Round]`, `[Pear]`) with live spec preview.
-  - Parallax scroll kinematics and tactile magnetic scroll indicator.
-- **Trust Marquee**:
-  - Infinite moving text strip: *"EXPERTLY SELECTED — CERTIFICATE-READY — PRIVATE CONSULTATION — PRECISION CUT — WORLDWIDE ELEGANCE"*.
-- **Diamond Shape Experience**:
-  - Editorial horizontal promenade for 6 featured cuts (*Round, Emerald, Oval, Pear, Heart, Princess*).
-  - Layered card elevation: Hovered card rises to `z-30`, expands, illuminates with an indigo glow, and dims neighboring cards.
-- **Featured Selection**:
-  - Asymmetric composition: 1 primary oversized stone (2.01 CT Oval) + 2 secondary stones (1.50 CT Emerald, 1.20 CT Round) with GIA/IGI dossier specs.
-- **Brand Story & Artisanal Credibility**:
-  - Split-screen editorial featuring Manhattan 47th St loupe inspection and transparent manufacturer-trader positioning.
-- **Private Consultation Section**:
-  - Dark/luminous vault ambience with translucent diamond line-art and interactive reservation card (NYC 47th St Atelier vs. Virtual HD Salon).
-- **Minimal Architectural Footer**:
-  - Complete 11 diamond cuts catalogue, verified New York address (*20 W 47th St, Suite #501, NYC*), direct contact phone/email, and private dispatch signup.
-- **Interactive Dossiers & Drawers**:
-  - **Stone Inspector Modal**: Mathematical facet blueprints, 4Cs analysis, light performance simulation.
-  - **Consultation Scheduler**: Bespoke appointment booking flow.
-  - **Vault Wishlist Drawer**: Slide-over drawer for curating stone selections.
-  - **Search Modal**: Instant cut, carat, and certification search.
+- **From Cold Diamond Vault to Warm Luxury Jewellery Maison**:
+  - Focus shifted 100% to **fine diamond ornaments** (Rings, Earrings, Necklaces, Pendants, Bracelets, and Bridal sets) rather than raw loose stones or laboratory grading tables.
+  - **Color Palette**: Warm ivory / soft cream (`#FAF8F5`), muted taupe, soft beige, warm stone, and subtle brushed gold (`#C4A67B`), paired with rich charcoal brown / deep espresso (`#1E1A17`) for typography.
+  - The official brand logo's royal-indigo purple (`#4D36A8`) is preserved and displayed sharply as a refined jewel accent.
+- **Cinematic Full-Screen Hero Video**:
+  - Continuous looping fashion video of luxury diamond jewellery with a gentle warm espresso overlay.
+  - Heading: *“Jewellery made to be remembered.”*
+  - Supporting line: *“Timeless diamond ornaments, thoughtfully chosen for your most meaningful moments.”*
+  - Dual CTAs: *“Explore Jewellery”* & *“Discover Our Story”*.
+- **Warm Trust Strip**:
+  - Four quiet promises: *“Fine Diamond Jewellery”* • *“Crafted with Care”* • *“Personal Guidance”* • *“Secure Shopping”*.
+- **Featured Collections (Asymmetrical Magazine Spread)**:
+  - Six editorial tiles: *Diamond Rings*, *Earrings*, *Necklaces*, *Pendants*, *Bracelets*, *Bridal Collection*.
+  - Smooth image zoom and gentle text glide on hover.
+- **Signature Pieces (Most Loved Pieces)**:
+  - Four iconic designs: *Celeste Diamond Ring*, *Élan Solitaire Earrings*, *Aurelia Diamond Pendant*, *Forever Bridal Necklace*.
+  - Clean card presentation with quick-view modal on hover.
+- **The House of Shweta (Heritage & Craftsmanship)**:
+  - Split-screen editorial featuring Manhattan 47th St atelier setting and emotional brand copy celebrating love, milestones, and memories.
+- **Bridal Feature**:
+  - Dedicated calm sanctuary section: *“For the moment that becomes forever.”* with full-height bridal jewellery portrait.
+- **Simple Final CTA & Architectural Footer**:
+  - Invitation to *“Find the piece that feels like you.”* with private salon booking.
+  - Verified New York details (*20 W 47th St, Suite #501, NYC*), phone, email, and social placeholders.
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Framework**: React 18 + JavaScript (clean MERN-compatible frontend structure)
-- **Styling**: Tailwind CSS + Custom CSS Variables & Glassmorphism
+- **Styling**: Tailwind CSS + Custom Typography & Smooth Animations
 - **Icons**: Lucide React
 - **Build Tool**: Vite 6
 
@@ -49,22 +45,11 @@ An executive digital presentation concept and luxury landing page created for **
 
 ## 🚀 Getting Started
 
-### 1. Install dependencies:
 ```bash
 npm install
-```
-
-### 2. Start the development server:
-```bash
 npm run dev
 ```
 Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### 3. Build for production:
-```bash
-npm run build
-```
-Production output will be generated in `dist/`.
 
 ---
 

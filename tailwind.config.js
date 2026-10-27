@@ -7,69 +7,42 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian: {
-          DEFAULT: '#0A0A0C',
-          light: '#131317',
-          card: '#16161B',
-          surface: '#1A1A22',
-          border: 'rgba(244, 240, 232, 0.12)'
+        cream: {
+          50: '#FDFCF9',
+          100: '#FAF8F5',
+          200: '#F5F1EB',
+          300: '#EFEAE2',
+          400: '#E5DED3',
+          500: '#D5CAC0'
         },
-        champagne: {
-          DEFAULT: '#F4F0E8',
-          light: '#FAF8F5',
-          dark: '#E2DAC8',
-          muted: '#C4BCAB'
+        espresso: {
+          DEFAULT: '#1E1A17',
+          light: '#2E2722',
+          card: '#FAF7F2',
+          muted: '#6E645A',
+          subtle: '#9A8E83'
         },
-        platinum: {
-          DEFAULT: '#B8BAC2',
-          light: '#E2E3E8',
-          dark: '#7A7E8B'
+        gold: {
+          light: '#DECBB0',
+          DEFAULT: '#C4A67B',
+          dark: '#A9895C',
+          subtle: 'rgba(196, 166, 123, 0.25)'
         },
-        indigoBrand: {
-          light: '#7256D4',
+        brandIndigo: {
           DEFAULT: '#4D36A8',
-          dark: '#2E1E6B',
-          glow: 'rgba(77, 54, 168, 0.35)'
+          subtle: 'rgba(77, 54, 168, 0.08)',
+          glow: 'rgba(77, 54, 168, 0.18)'
         }
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Didot', 'Bodoni MT', 'Cinzel', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-        editorial: ['"Italiana"', 'Didot', 'serif']
+        serif: ['"Cormorant Garamond"', 'Didot', 'Bodoni MT', 'serif'],
+        editorial: ['"Italiana"', 'Didot', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif']
       },
       letterSpacing: {
         widest_editorial: '0.22em',
-        ultra: '0.3em'
-      },
-      animation: {
-        'marquee': 'marquee 35s linear infinite',
-        'marquee-reverse': 'marquee-reverse 35s linear infinite',
-        'shimmer': 'shimmer 4s ease-in-out infinite',
-        'pulse-subtle': 'pulseSubtle 5s ease-in-out infinite',
-        'float-slow': 'floatSlow 7s ease-in-out infinite',
-        'spin-slow': 'spin 30s linear infinite'
-      },
-      keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-        'marquee-reverse': {
-          '0%': { transform: 'translateX(-50%)' },
-          '100%': { transform: 'translateX(0%)' },
-        },
-        shimmer: {
-          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-          '50%': { opacity: '0.9', transform: 'scale(1.03)' },
-        },
-        pulseSubtle: {
-          '0%, 100%': { opacity: '0.6' },
-          '50%': { opacity: '1' },
-        },
-        floatSlow: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        }
+        luxury: '0.18em',
+        subtle: '0.06em'
       }
     },
   },

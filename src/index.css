@@ -4,95 +4,60 @@
 
 @layer base {
   :root {
-    --color-obsidian: #0A0A0C;
-    --color-champagne: #F4F0E8;
-    --color-indigo-brand: #4D36A8;
-    --color-platinum: #B8BAC2;
+    --bg-main: #FAF8F5;
+    --text-main: #1E1A17;
+    --text-muted: #6E645A;
+    --gold-accent: #C4A67B;
   }
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #FAF8F5;
+    color: #1E1A17;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
-  /* Custom luxury scrollbar for light & dark themes */
-  .theme-light::-webkit-scrollbar {
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
     width: 6px;
-    height: 6px;
   }
-  .theme-light::-webkit-scrollbar-track {
-    background: #F4F0E8;
+  ::-webkit-scrollbar-track {
+    background: #FAF8F5;
   }
-  .theme-light::-webkit-scrollbar-thumb {
-    background: #D8D2C5;
+  ::-webkit-scrollbar-thumb {
+    background: #DDD5C7;
     border-radius: 3px;
   }
-  .theme-light::-webkit-scrollbar-thumb:hover {
-    background: #4D36A8;
-  }
-
-  .theme-dark::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  .theme-dark::-webkit-scrollbar-track {
-    background: #0A0A0C;
-  }
-  .theme-dark::-webkit-scrollbar-thumb {
-    background: #2A2A35;
-    border-radius: 3px;
-  }
-  .theme-dark::-webkit-scrollbar-thumb:hover {
-    background: #4D36A8;
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C4A67B;
   }
 }
 
-/* Light theme subtle noise texture */
-.noise-overlay-light {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+/* Subtle, calm image zoom on hover */
+.img-zoom {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .img-zoom {
+  transform: scale(1.05);
 }
 
-/* Dark theme noise texture */
-.noise-overlay-dark {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
-}
-
-/* Light sweep animation for shape cards */
-@keyframes lightSweep {
-  0% {
-    transform: translateX(-150%) skewX(-25deg);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateX(250%) skewX(-25deg);
-    opacity: 0;
-  }
-}
-
-.animate-light-sweep:hover .light-beam {
-  animation: lightSweep 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Diamond facet glint sparkle */
-@keyframes sparkle {
+/* Refined luxury glint */
+@keyframes softGlint {
   0%, 100% {
     opacity: 0;
-    transform: scale(0.4) rotate(0deg);
+    transform: scale(0.6) rotate(0deg);
   }
   50% {
-    opacity: 0.95;
-    transform: scale(1.1) rotate(90deg);
+    opacity: 0.85;
+    transform: scale(1.1) rotate(45deg);
   }
 }
 
 .glint-sparkle {
-  animation: sparkle 3.5s ease-in-out infinite;
+  animation: softGlint 4.5s ease-in-out infinite;
 }
 
-/* Hide scrollbars for horizontal scroll containers */
+/* Hide scrollbars */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

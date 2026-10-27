@@ -1,160 +1,155 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { TrustMarquee } from './components/TrustMarquee';
-import { DiamondShapes } from './components/DiamondShapes';
-import { FeaturedSelection } from './components/FeaturedSelection';
-import { BrandStory } from './components/BrandStory';
-import { PrivateConsultation } from './components/PrivateConsultation';
+import { WarmTrustStrip } from './components/WarmTrustStrip';
+import { FeaturedCollections } from './components/FeaturedCollections';
+import { SignaturePieces } from './components/SignaturePieces';
+import { HeritageStory } from './components/HeritageStory';
+import { BridalFeature } from './components/BridalFeature';
+import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 
-import { StoneInspectorModal } from './components/StoneInspectorModal';
+import { PieceModal } from './components/PieceModal';
 import { ConsultationModal } from './components/ConsultationModal';
 import { WishlistDrawer } from './components/WishlistDrawer';
 import { SearchModal } from './components/SearchModal';
 import { StoryModal } from './components/StoryModal';
 
-import { FEATURED_DIAMONDS } from './data/diamonds';
+import { SIGNATURE_PIECES } from './data/jewellery';
 
 export default function App() {
-  // Theme state: default to 'light' (Luminous Luxury Warm Champagne & Alabaster)
-  const [theme, setTheme] = useState('light');
-
-  // Wishlist state preloaded with the primary gem for immediate interactive polish
-  const [wishlist, setWishlist] = useState([FEATURED_DIAMONDS[0]]);
-  const [inspectedStone, setInspectedStone] = useState(null);
+  // Wishlist state initialized with 1 loved piece
+  const [wishlist, setWishlist] = useState([SIGNATURE_PIECES[0]]);
+  const [inspectedPiece, setInspectedPiece] = useState(null);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
-  const [consultationStone, setConsultationStone] = useState(null);
+  const [consultationPiece, setConsultationPiece] = useState(null);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isStoryOpen, setIsStoryOpen] = useState(false);
 
-  const handleToggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-  };
-
-  const handleToggleWishlist = (stone) => {
-    const stoneKey = stone.id || stone.sku;
+  // Wishlist toggle
+  const handleToggleWishlist = (piece) => {
     setWishlist((prev) => {
-      const exists = prev.some((item) => (item.id || item.sku) === stoneKey);
+      const exists = prev.some((item) => item.id === piece.id);
       if (exists) {
-        return prev.filter((item) => (item.id || item.sku) !== stoneKey);
+        return prev.filter((item) => item.id !== piece.id);
       } else {
-        return [...prev, stone];
+        return [...prev, piece];
       }
     });
   };
 
-  const handleRemoveFromWishlist = (stoneKey) => {
-    setWishlist((prev) => prev.filter((item) => (item.id || item.sku) !== stoneKey));
+  const handleRemoveFromWishlist = (pieceId) => {
+    setWishlist((prev) => prev.filter((item) => item.id !== pieceId));
   };
 
-  const handleOpenConsultation = (stone = null) => {
-    setConsultationStone(stone);
+  const handleOpenConsultation = (piece = null) => {
+    setConsultationPiece(piece);
     setIsConsultationOpen(true);
   };
 
-  const handleInspectStone = (stone) => {
-    setInspectedStone(stone);
+  const handleInspectPiece = (piece) => {
+    setInspectedPiece(piece);
   };
 
-  const handleExplore = () => {
-    const el = document.getElementById('shapes-section');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const isCurrentStoneWishlisted = inspectedStone 
-    ? wishlist.some((item) => (item.id || item.sku) === (inspectedStone.id || inspectedStone.sku))
+  const isCurrentPieceWishlisted = inspectedPiece
+    ? wishlist.some((item) => item.id === inspectedPiece.id)
     : false;
 
-  const isLight = theme === 'light';
-
   return (
-    <div className={`min-h-screen transition-colors duration-700 font-sans overflow-x-hidden ${
-      isLight 
-        ? 'theme-light bg-[#F9F7F2] text-[#111116] selection:bg-indigoBrand/20 selection:text-indigoBrand' 
-        : 'theme-dark bg-obsidian text-champagne selection:bg-indigoBrand/40 selection:text-champagne'
-    }`}>
+    <div className="min-h-screen bg-cream-100 text-espresso font-sans antialiased selection:bg-gold/20 selection:text-espresso overflow-x-hidden">
       
-      {/* Floating Header with Theme Switcher */}
+      {/* 1. Floating Lightweight Header */}
       <Header
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenWishlist={() => setIsWishlistOpen(true)}
         wishlistCount={wishlist.length}
         onBookConsultation={() => handleOpenConsultation()}
-        onInspectShape={(shape) => handleInspectStone(shape)}
-        theme={theme}
-        onToggleTheme={handleToggleTheme}
       />
 
-      {/* Main Home Page Sections */}
       <main>
-        {/* Section 1: Cinematic Hero */}
+        {/* 1. Cinematic Hero Video Section */}
         <Hero
-          onExplore={handleExplore}
-          onBookConsultation={() => handleOpenConsultation()}
-          theme={theme}
+          onExplore={() => {
+            const el = document.getElementById('collections-section');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+          onDiscoverStory={() => setIsStoryOpen(true)}
         />
 
-        {/* Section 2: Trust Marquee Strip */}
-        <TrustMarquee theme={theme} />
+        {/* 2. Warm Trust Strip */}
+        <WarmTrustStrip />
 
-        {/* Section 3: Diamond Shape Experience */}
-        <DiamondShapes
-          onInspectShape={handleInspectStone}
+        {/* 3. Featured Collections (6 Editorial Tiles) */}
+        <FeaturedCollections
+          onSelectCollection={(collection) => {
+            // Find a matching sample piece or open preview
+            const matchingPiece = SIGNATURE_PIECES.find(
+              (p) => p.category.toLowerCase().includes(collection.id.toLowerCase())
+            ) || {
+              id: collection.id,
+              name: `${collection.name} Fine Ornament`,
+              category: collection.name,
+              price: 'Price upon request',
+              description: collection.tagline,
+              image: collection.image,
+              details: 'Handcrafted in 18k Gold or Platinum with certified natural diamonds.'
+            };
+            handleInspectPiece(matchingPiece);
+          }}
+        />
+
+        {/* 4. Signature Pieces (4 Most Loved Pieces) */}
+        <SignaturePieces
+          onInspectPiece={handleInspectPiece}
           onToggleWishlist={handleToggleWishlist}
           wishlist={wishlist}
-          theme={theme}
         />
 
-        {/* Section 4: Featured Selection */}
-        <FeaturedSelection
-          onInspectStone={handleInspectStone}
-          onToggleWishlist={handleToggleWishlist}
-          wishlist={wishlist}
-          onBookConsultation={(stone) => handleOpenConsultation(stone)}
-          theme={theme}
-        />
-
-        {/* Section 5: Brand Story / Artisanal Credibility */}
-        <BrandStory
+        {/* 5. Heritage / Brand Story */}
+        <HeritageStory
           onOpenStory={() => setIsStoryOpen(true)}
-          theme={theme}
         />
 
-        {/* Section 6: Private Consultation Section */}
-        <PrivateConsultation
-          onOpenConsultation={() => handleOpenConsultation()}
-          theme={theme}
+        {/* 6. Bridal Feature */}
+        <BridalFeature
+          onExploreBridal={() => {
+            const bridalPiece = SIGNATURE_PIECES.find(p => p.id === 'forever-necklace') || SIGNATURE_PIECES[0];
+            handleInspectPiece(bridalPiece);
+          }}
+        />
+
+        {/* 7. Simple Final CTA */}
+        <FinalCTA
+          onBookConsultation={() => handleOpenConsultation()}
         />
       </main>
 
-      {/* Section 7: Minimal Architectural Footer */}
+      {/* Footer */}
       <Footer
-        onInspectShape={handleInspectStone}
-        onBookConsultation={() => handleOpenConsultation()}
-        theme={theme}
+        onSelectCategory={() => {
+          const el = document.getElementById('collections-section');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }}
       />
 
-      {/* Modals & Interactive Drawers */}
-      <StoneInspectorModal
-        stone={inspectedStone}
-        isOpen={Boolean(inspectedStone)}
-        onClose={() => setInspectedStone(null)}
-        onBookConsultation={(stone) => handleOpenConsultation(stone)}
+      {/* Modals & Slide-over Drawers */}
+      <PieceModal
+        piece={inspectedPiece}
+        isOpen={Boolean(inspectedPiece)}
+        onClose={() => setInspectedPiece(null)}
+        onBookConsultation={(piece) => handleOpenConsultation(piece)}
         onToggleWishlist={handleToggleWishlist}
-        isWishlisted={isCurrentStoneWishlisted}
-        theme={theme}
+        isWishlisted={isCurrentPieceWishlisted}
       />
 
       <ConsultationModal
         isOpen={isConsultationOpen}
         onClose={() => {
           setIsConsultationOpen(false);
-          setConsultationStone(null);
+          setConsultationPiece(null);
         }}
-        selectedStone={consultationStone}
-        theme={theme}
+        selectedPiece={consultationPiece}
       />
 
       <WishlistDrawer
@@ -162,23 +157,20 @@ export default function App() {
         onClose={() => setIsWishlistOpen(false)}
         items={wishlist}
         onRemove={handleRemoveFromWishlist}
-        onInspect={handleInspectStone}
-        onBookConsultation={(stone) => handleOpenConsultation(stone)}
-        theme={theme}
+        onInspect={handleInspectPiece}
+        onBookConsultation={(piece) => handleOpenConsultation(piece)}
       />
 
       <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
-        onInspect={handleInspectStone}
-        theme={theme}
+        onInspect={handleInspectPiece}
       />
 
       <StoryModal
         isOpen={isStoryOpen}
         onClose={() => setIsStoryOpen(false)}
         onBookConsultation={() => handleOpenConsultation()}
-        theme={theme}
       />
 
     </div>
